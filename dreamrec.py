@@ -69,7 +69,7 @@ class DreamRec(nn.Module):
         self.cfg_scale = args.cfg_scale
 
         # diffusion schedule
-        beta_start, beta_end, timesteps = 1e-4, 2e-2, 1000
+        beta_start, beta_end, timesteps = 1e-4, 2e-2, args.diffusion_steps
         betas = torch.linspace(beta_start, beta_end, timesteps)
         alphas = 1.0 - betas
         alphas_cumprod = torch.cumprod(alphas, dim=0)
